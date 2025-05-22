@@ -20,28 +20,47 @@ class TicTacToe:
     def print_board(self):
         # Challenge 2: Print the board in 3 rows and 3 columns
         # For example:
-        # X | O |  
+        # X | O |
         # --+---+--
         #   | X | O
         # --+---+--
         # O |   | X
-        pass
+        print(self.board[1] + '|' + self.board[2] + '|' + self.board[3] + '|')
+        print('--+---+--')
+        print(self.board[4] + '|' + self.board[5] + '|' + self.board[6] + '|')
+        print('--+---+--')
+        print(self.board[7] + '|' + self.board[8] + '|' + self.board[9] + '|')
+        print('\n')
+
 
     def is_cell_free(self, position):
         # Challenge 3: Return True if the cell at 'position' is empty (' ')
         # Otherwise, return False
-        pass
+        if self.board == ' ':
+            return True
+        return False
+
 
     def update_player_position(self, player, position):
         # Challenge 4: If the cell at 'position' is free, place 'player' symbol there
         # If the cell is occupied, print an error and ask the player to input again
         # After updating the board, check if the game ended (win or draw)
-        pass
+        if self.is_cell_free(position):
+            self.board[position] = player
+        else:
+            print("ERROR: Cannot insert here.")
+            self.move_player
+
 
     def is_winning(self, player):
         # Challenge 5: Check if 'player' has 3 in a row horizontally, vertically, or diagonally
         # Return True if winning condition met, False otherwise
-        pass
+        if self.board[1] == player and self.board[5] == player and self.board[9] == player:
+            return True
+        elif self.board[3] == player and self.board[5] == player and self.board[9] == player:
+            return True
+        for i in range(10):
+             if self.board[3*i+1]:
 
     def is_draw(self):
         # Challenge 6: Return True if no empty cells remain on the board (all positions filled)
